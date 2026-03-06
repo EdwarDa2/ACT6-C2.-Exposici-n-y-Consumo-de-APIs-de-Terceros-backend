@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Headers': 'Content-Type',
 };
 
 // 2. Manejador para la petición Preflight (OPTIONS) del navegador
@@ -37,8 +37,7 @@ export async function GET(request: Request) {
     return NextResponse.json(data, { headers: corsHeaders });
 
   } catch (error) {
-    // Si la API falla (ej. API Key incorrecta), también devolvemos los headers
-    // para que el frontend pueda leer el error en lugar de bloquearse por CORS
+
     return NextResponse.json(
       { error: 'Fallo en el servidor proxy' }, 
       { status: 500, headers: corsHeaders }
