@@ -12,7 +12,7 @@ export async function OPTIONS() {
   return NextResponse.json({}, { headers: corsHeaders });
 }
 
-// 3. Tu petición GET principal
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
