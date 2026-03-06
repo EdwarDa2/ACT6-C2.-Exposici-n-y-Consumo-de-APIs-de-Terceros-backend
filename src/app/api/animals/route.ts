@@ -16,7 +16,7 @@ export async function OPTIONS() {
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const animalName = searchParams.get('name') || 'cheetah';
+    const animalName = searchParams.get('name');
 
     const apiUrl = `${process.env.EXTERNAL_API_URL}?name=${animalName}`;
 
